@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  # 1. Servicio del Backend (Strapi)
+  backend:
+    build: 
+      context: ./backend 
+      dockerfile: Dockerfile
+    container_name: backend-cms
+    restart: always
+    ports:
+      - "1337:1337" 
+    volumes:
+      - ./backend:/app 
+      - /app/node_modules 
+    # Mantiene el Backend corriendo durante el despliegue
+
+  # 2. Servicio del Frontend (Vanilla JS con Nginx)
+  frontend:
+    build: 
+      context: ./frontend 
+      dockerfile: Dockerfile
+    container_name: frontend-vanilla
+    restart: always
+    ports:
+      - "80:80" # El puerto que abrirás en el navegador
+    depends_on:
+      - backend
