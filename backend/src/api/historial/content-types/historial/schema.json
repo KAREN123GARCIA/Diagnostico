@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "historials",
+  "info": {
+    "singularName": "historial",
+    "pluralName": "historials",
+    "displayName": "HISTORIAL"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "QUERY": {
+      "type": "string"
+    }
+  }
+}
